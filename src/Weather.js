@@ -52,6 +52,7 @@ export default function Weather() {
       });
       i++;
     }
+    var futureForecast = [...forecast];
   }
   function getGeoLocation(response) {
     setLocation({
@@ -84,7 +85,7 @@ export default function Weather() {
         </form>
       </div>
       <CurrentWeather info={weatherInfo} city={location.name} />
-      <FutureForcast forecast={forecast} />
+      <FutureForcast forecast={futureForecast} />
     </div>
   );
 }
