@@ -1,0 +1,22 @@
+.Weather {
+  display: block;
+  margin: 15px auto;
+  max-width: 652px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 10px;
+}
+.Weather .weatherSearch {
+  margin: 10px auto;
+  display: block;
+  border-radius: 4px;
+  padding: 10px;
+}
+.weatherSearch form {
+  display: flex;
+  justify-content: space-between;
+}
+.weatherSearch form input {
+  margin: 5px;
+}

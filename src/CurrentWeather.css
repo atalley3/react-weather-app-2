@@ -1,0 +1,52 @@
+.CurrentWeather {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+
+  height: 75px;
+  color: var(--primary-color);
+}
+.CurrentWeather .Description {
+  text-align: right;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--secondary-color);
+}
+.CurrentWeather .cityName {
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+.CurrentWeather .temp {
+  display: inline-block;
+  font-size: 60px;
+  vertical-align: top;
+  line-height: 60px;
+  position: relative;
+  top: -6px;
+}
+.CurrentWeather .temp span {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 24px;
+  position: relative;
+  top: -30px;
+  color: var(--secondary-color);
+}
+.CurrentWeather .Details {
+  color: var(--secondary-color);
+  display: inline-block;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: capitalize;
+  position: relative;
+  top: -30px;
+  text-align: start;
+}
+.CurrentWeather img {
+  display: block;
+  margin: 0px;
+  position: relative;
+  top: 12px;
+}

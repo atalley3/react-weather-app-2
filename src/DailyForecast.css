@@ -1,0 +1,14 @@
+.DailyForecast {
+  font-size: 13px;
+}
+.DailyForecast .day {
+  font-size: 14;
+}
+.DailyForecast .temp {
+  font-weight: bold;
+}
+
+.DailyForecast img {
+  max-width: 50%;
+  height: auto;
+}
