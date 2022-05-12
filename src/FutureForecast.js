@@ -5,7 +5,7 @@ import "./FutureForecast.css";
 export default function FutureForecast(props) {
   let forecast = props.forecast;
 
-  if ((forecast.length = 1)) {
+  if (forecast.length === 1) {
     return (
       <div className="FutureForecast">
         <DailyForecast forecast={forecast[0]} day="Mon" />
@@ -18,7 +18,7 @@ export default function FutureForecast(props) {
       </div>
     );
   }
-  if ((forecast.length = 8)) {
+  if (forecast.length === 8) {
     return (
       <div className="FutureForecast">
         <DailyForecast forecast={forecast[1]} day={null} />

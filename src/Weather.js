@@ -5,7 +5,7 @@ import "./Weather.css";
 import FutureForcast from "./FutureForecast";
 
 export default function Weather() {
-  let [city, setCity] = useState("Xanadu");
+  let [city, setCity] = useState();
   let [weatherInfo, setWeatherInfo] = useState({
     temperature: 100,
     tempMax: 150,
@@ -27,12 +27,13 @@ export default function Weather() {
   const apiKey = "bcdada43905d3c2d7aa9f45a7ce30f8b";
   let units = "imperial";
   const geoApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
-  const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&exclude={part}&appid=${apiKey}&units=${units}`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&exclude=minutely,hourly,alerts&appid=${apiKey}&units=${units}`;
 
   function handleResponse(response) {
     setWeatherInfo({
-      name: city,
       temperature: response.data.current.temp,
+      tempMax: response.data.daily[0].temp.max,
+      tempMin: response.data.daily[0].temp.max,
       icon: response.data.current.weather[0].icon,
       iconAlt: response.data.current.weather[0].main,
       description: response.data.current.weather[0].description,

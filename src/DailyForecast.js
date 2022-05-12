@@ -7,8 +7,8 @@ export default function DailyForecast(props) {
   let icon = props.forecast.icon;
   let iconAlt = props.forecast.iconalt;
   let iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-  let minTemp = props.forecast.tempMin;
-  let maxTemp = props.forecast.tempMax;
+  let minTemp = Math.round(props.forecast.tempMin);
+  let maxTemp = Math.round(props.forecast.tempMax);
   if (!props.day) {
     day = <DayTimeUpdate full={false} dt={props.forecast.dt} />;
   } else {
