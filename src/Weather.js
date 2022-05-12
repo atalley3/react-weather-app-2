@@ -5,8 +5,7 @@ import "./Weather.css";
 import FutureForcast from "./FutureForecast";
 
 export default function Weather() {
-  let [city, setCity] = useState();
-  let [weatherInfo, setWeatherInfo] = useState({
+  let placeholderWeather = {
     temperature: 100,
     tempMax: 150,
     tempMin: 0,
@@ -16,13 +15,15 @@ export default function Weather() {
     description: "whats happening?",
     dt: 882000000,
     iconAlt: "Ash",
-  });
+  };
+  let [city, setCity] = useState();
+  let [weatherInfo, setWeatherInfo] = useState(placeholderWeather);
   let [location, setLocation] = useState({
     lat: 0,
     lon: 0,
     name: "Xanadu",
   });
-  let forecast = [weatherInfo];
+  let [forecast, setForecast] = useState([placeholderWeather]);
 
   const apiKey = "bcdada43905d3c2d7aa9f45a7ce30f8b";
   let units = "imperial";
@@ -41,9 +42,10 @@ export default function Weather() {
       wind: response.data.current.wind_speed,
       dt: response.data.current.dt,
     });
+    let forecastArr = [placeholderWeather];
     let i = 1; //counter varible for while loop
     while (i < 8) {
-      forecast.push({
+      forecastArr.push({
         dt: response.data.daily[i].dt,
         tempMax: response.data.daily[i].temp.max,
         tempMin: response.data.daily[i].temp.min,
@@ -52,7 +54,7 @@ export default function Weather() {
       });
       i++;
     }
-    var futureForecast = [...forecast];
+    setForecast(forecastArr);
   }
   function getGeoLocation(response) {
     setLocation({
@@ -85,7 +87,7 @@ export default function Weather() {
         </form>
       </div>
       <CurrentWeather info={weatherInfo} city={location.name} />
-      <FutureForcast forecast={futureForecast} />
+      <FutureForcast forecast={forecast} />
     </div>
   );
 }
